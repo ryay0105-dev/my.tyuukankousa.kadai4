@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <title>her chan | 萩市のガールズバー</title>
+
+  <style>
+    /* ------------------------------------
+   エルシャン：白×ゴールド×赤
+   ------------------------------------ */
+
+    /* カラーテーマ */
+    :root {
+      --gold: #da2754;
+      /* 高級感のゴールド */
+      --neon-purple: #c42d99;
+      /* ネオン紫 */
+      --bg: #0e0e0e;
+      /* 黒背景 */
+      --text: #b80e90bc;
+      /* 白文字 */
+    }
+
+    /* 全体設定 */
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Yu Gothic", "ヒラギノ角ゴ ProN", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* セクションの余白 */
+    section {
+      background: radial-gradient(circle at 20% 30%,
+          rgba(199, 125, 255, 0.12),
+          transparent 60%),
+        radial-gradient(circle at 80% 70%,
+          rgba(255, 0, 90, 0.12),
+          transparent 60%);
+    }
+
+    /* 見出し（ゴールド＋ネオンの両立） */
+    h1,
+    h2 {
+      text-align: center;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-shadow: 0 0 8px var(--neon-purple);
+      /* ネオンの光を追加 */
+      margin: 0;
+      padding: 20px 0;
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 70px;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin: 0;
+      padding-top: 20px;
+      padding-bottom: 10px;
+
+      /* 光の流れを作るための設定 */
+      background: linear-gradient(90deg,
+          var(--gold),
+          var(--neon-purple),
+          var(--gold));
+      background-size: 300%;
+      -webkit-background-clip: text;
+      color: transparent;
+
+      /* アニメーション */
+      animation: shineFlow 4s infinite linear;
+    }
+
+    @keyframes shineFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 300% 50%;
+      }
+    }
+
+    /* CONCEPT セクションの光ライン */
+    #concept {
+      position: relative;
+      padding: 60px 20px;
+      background: radial-gradient(circle at 20% 30%,
+          rgba(199, 125, 255, 0.12),
+          transparent 60%),
+        radial-gradient(circle at 80% 70%,
+          rgba(255, 0, 90, 0.12),
+          transparent 60%);
+    }
+
+    #concept::before,
+    #concept::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 80%;
+      height: 1px;
+
+      background: linear-gradient(90deg,
+          transparent,
+          var(--neon-purple),
+          transparent);
+      transform: translateX(-50%);
+    }
+
+    #concept::before {
+      top: 20px;
+    }
+
+    #concept::after {
+      bottom: 20px;
+    }
+
+    #concept p {
+      text-align: center;
+    }
+
+    #concept p {
+      text-align: center;
+      animation: fadeUp 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CONCEPT：左右レイアウト */
+    .concept-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 30px;
+    }
+
+    /* 左側の画像 */
+    .concept-img {
+      width: 300px;
+      height: 350px;
+      background: url('1780574624191.jpg') center/cover no-repeat;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(199, 125, 255, 0.4);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    /* 右側のテキスト */
+    .concept-text {
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .concept-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: center;
+      animation: fadeUp 1.2s ease-out forwards;
+      color: #ffffff;
+    }
+
+    /* スマホでは縦並びにする */
+    @media (max-width: 768px) {
+      .concept-wrap {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .concept-img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+
+      .concept-text p {
+        text-align: center;
+      }
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    /* ヒーロー部分（画像が無い時の仮デザイン） */
+    .hero {
+      background: linear-gradient(135deg,
+          rgba(199, 125, 255, 0.3),
+          rgba(0, 0, 0, 0.8)),
+        url('1780574630787.jpg') center/cover no-repeat;
+      padding: 100px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--gold);
+      text-align: center;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 15px;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+
+      /* 光の流れを作るための設定 */
+      background: linear-gradient(90deg,
+          #ffffff,
+          var(--neon-purple),
+          #ffffff);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      color: transparent;
+
+      /* アニメーション */
+      animation: shineFlowP 5s infinite linear;
+    }
+
+    /* キャッチコピー用の光アニメーション（弱め） */
+    @keyframes shineFlowP {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 300% 50%;
+      }
+    }
+
+
+    /* 料金ボックス（SYSTEM） */
+    .price-box {
+      border: 1px solid var(--gold);
+      padding: 25px;
+      margin: 0 auto;
+      max-width: 320px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px rgba(199, 125, 255, 0.4),
+        0 0 20px rgba(199, 125, 255, 0.2);
+      border-radius: 10px;
+
+      /* ボックスアクションをなめらかにする */
+      transition: all 0.3s ease;
+    }
+
+    /*マウスを載せたときの動き*/
+    .price-box:hover {
+      transform: translateY(-6px);
+      /*カードが浮く*/
+      box-shadow:
+        0 0 20px rgba(199, 125, 255, 0.7),
+        0 0 40px rgba(199, 125, 255, 0.4);
+      /*光が強くなる*/
+      border-color: var(--neon-purple);
+    }
+
+    .price {
+      font-size: 24px;
+      color: var(--gold);
+      font-weight: 700;
+      text-shadow:
+        0 0 6px var(--neon-purple),
+        0 0 12px var(--neon-purple);
+      margin-bottom: 10px;
+    }
+
+    .system-detail {
+      color: #fff;
+      font-size: 16px;
+      opacity: 0.9;
+      letter-spacing: 0.03em;
+      margin-top: 10px;
+    }
+
+    /* キャッチコピー（最初に表示） */
+    .concept-text .catch {
+      opacity: 0;
+      animation: fadeUp 3.2s ease-out forwards;
+      animation-delay: 0s;
+    }
+
+    /* 説明文（遅れて表示） */
+    .concept-text .desc {
+      opacity: 0;
+      animation: fadeUp 4s ease-out forwards;
+    }
+
+    /* 2行目の説明文 */
+    .concept-text .desc:nth-of-type(1) {
+      animation-delay: 4.2s;
+    }
+
+    /* 3行目の説明文 */
+    .concept-text .desc:nth-of-type(2) {
+      animation-delay: 4.4s;
+    }
+
+    /* 説明文のネオン効果 */
+    .concept-text .desc {
+      color: var(--text);
+      text-shadow:
+        0 0 4px rgba(199, 125, 255, 0.6),
+        0 0 8px rgba(199, 125, 255, 0.4),
+        0 0 12px rgba(199, 125, 255, 0.2);
+    }
+
+
+    /* CAST：カード本体 */
+    .cast-card {
+      width: 200px;
+      height: 280px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      box-shadow:
+        0 0 10px rgba(199, 125, 255, 0.4),
+        0 0 20px rgba(199, 125, 255, 0.2);
+      text-align: center;
+      transition: 0.3s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-style: preserve-3d;
+      margin-left: -100px;
+      margin-top: -140px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ホバーで光が強くなる */
+    .cast-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 20px rgba(199, 125, 255, 0.7),
+        0 0 40px rgba(199, 125, 255, 0.4);
+      border-color: var(--neon-purple);
+    }
+
+    /* CAST：画像を小さく */
+    .cast-card .cast-img {
+      width: 100%;
+      height: 170px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      flex-shrink: 0;
+    }
+
+    /* CAST：通常の画像*/
+    .cast-card:nth-of-type(1) .cast-img {
+      background: url('cast1.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(1):hover .cast-img {
+      background: url('cast1_hover.jpg') center/contain no-repeat;
+    }
+
+    .cast-card:nth-of-type(2) .cast-img {
+      background: url('cast2.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(2):hover .cast-img {
+      background: url('cast2_hover.jpg') center/contain no-repeat;
+    }
+
+    /* CAST：名前・コメント */
+    .cast-name {
+      font-size: 13px;
+      color: var(--gold);
+      margin: 3px 0 1px 0;
+      font-weight: 700;
+    }
+
+    .cast-comment {
+      font-size: 10px;
+      color: #ffffff;
+      opacity: 0.85;
+      line-height: 1.4;
+      max-height: 60px;
+      overflow: auto;
+      word-break: break-word;
+    }
+
+    /* ===== CAST：3Dカルーセル ===== */
+    .cast-carousel {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      perspective: 1200px;
+      /* 3D奥行き */
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #cast h2 {
+      margin-bottom: 40px;
+      /* タイトル下の余白 */
+    }
+
+    .cast-rotate {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      animation: rotateCast 30s linear infinite;
+      /* 自動回転 */
+    }
+
+    /* CAST：カード本体 */
+    .cast-card {
+      width: 200px;
+      height: 280px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      box-shadow:
+        0 0 10px rgba(199, 125, 255, 0.4),
+        0 0 20px rgba(199, 125, 255, 0.2);
+      text-align: center;
+      transition: 0.3s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-style: preserve-3d;
+      margin-left: -100px;
+      margin-top: -140px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ホバーで光が強くなる */
+    .cast-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 20px rgba(199, 125, 255, 0.7),
+        0 0 40px rgba(199, 125, 255, 0.4);
+      border-color: var(--neon-purple);
+    }
+
+    /* CAST：画像を小さく */
+    .cast-card .cast-img {
+      width: 100%;
+      height: 170px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      flex-shrink: 0;
+    }
+
+    /* CAST：通常の画像*/
+    .cast-card:nth-of-type(1) .cast-img {
+      background: url('cast1.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(1):hover .cast-img {
+      background: url('cast1_hover.jpg') center/contain no-repeat;
+    }
+
+    .cast-card:nth-of-type(2) .cast-img {
+      background: url('cast2.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(2):hover .cast-img {
+      background: url('cast2_hover.jpg') center/contain no-repeat;
+    }
+
+    .cast-card:nth-of-type(3) .cast-img {
+      background: url('cast3.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(3):hover .cast-img {
+      background: url('cast3_hover.jpg') center/contain no-repeat;
+    }
+
+    .cast-card:nth-of-type(4) .cast-img {
+      background: url('cast4.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(4):hover .cast-img {
+      background: url('cast4_hover.jpg') center/contain no-repeat;
+    }
+
+    .cast-card:nth-of-type(5) .cast-img {
+      background: url('cast5.jpg') center/contain no-repeat;
+      transition: 0.5s ease;
+    }
+
+    /* ホバー時の画像 */
+    .cast-card:nth-of-type(5):hover .cast-img {
+      background: url('cast5_hover.jpg') center/contain no-repeat;
+    }
+
+    /* CAST：名前・コメント */
+    .cast-name {
+      font-size: 13px;
+      color: var(--gold);
+      margin: 3px 0 1px 0;
+      font-weight: 700;
+    }
+
+    .cast-comment {
+      font-size: 10px;
+      color: #ffffff;
+      opacity: 0.85;
+      line-height: 1.4;
+      max-height: 60px;
+      overflow: auto;
+      word-break: break-word;
+    }
+
+    /* 3D回転アニメーション */
+    @keyframes rotateCast {
+      0% {
+        transform: rotateY(0deg);
+      }
+
+      100% {
+        transform: rotateY(-360deg);
+      }
+    }
+
+    /* ===== GALLERY：画像めくり効果 ===== */
+    .gallery-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .gallery-flipper {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      perspective: 1200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border: 3px solid var(--gold);
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 30px rgba(199, 125, 255, 0.6);
+      transform-style: preserve-3d;
+      transform-origin: center center;
+      animation: galleryFlip 15s ease-in-out infinite;
+    }
+
+    /* 各カードのアニメーション遅延 */
+    .gallery-card:nth-child(1) {
+      animation-delay: 0s;
+      z-index: 5;
+    }
+
+    .gallery-card:nth-child(2) {
+      animation-delay: 3s;
+      z-index: 4;
+    }
+
+    .gallery-card:nth-child(3) {
+      animation-delay: 6s;
+      z-index: 3;
+    }
+
+    .gallery-card:nth-child(4) {
+      animation-delay: 9s;
+      z-index: 2;
+    }
+
+    .gallery-card:nth-child(5) {
+      animation-delay: 12s;
+      z-index: 1;
+    }
+
+    /* ギャラリーカードめくりアニメーション */
+    @keyframes galleryFlip {
+      0% {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+      }
+
+      15% {
+        opacity: 1;
+        transform: rotateY(0deg) scale(1);
+      }
+
+      40% {
+        opacity: 0;
+        transform: rotateY(-90deg) scale(0.8);
+      }
+
+      100% {
+        opacity: 0;
+        transform: rotateY(-90deg) scale(0.8);
+      }
+    }
+
+    /* ===== RECRUIT：リクルートセクション ===== */
+    #recruit {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    #recruit p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 15px 0;
+      background: linear-gradient(90deg,
+          #ff0000,
+          #ff7f00,
+          #ffff00,
+          #00ff00,
+          #0000ff,
+          #4b0082,
+          #9400d3);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowShift 3s ease-in-out infinite;
+    }
+
+    @keyframes rainbowShift {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <div class="hero">
+      <h1>her chan</h1>
+      <p>萩市で一番、エレガントでラグジュアリーなガールズバー</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="concept">
+      <h2>CONCEPT</h2>
+
+      <div class="concept-wrap">
+        <div class="concept-img"></div>
+
+
+        <div class="concept-text">
+          <p>アットホームでラグジュアリーな空間。</p>
+          <p>あなたの時間を大切に、心を込めておもてなし。</p>
+          <p>素敵な夜を私たちと過ごしませんか？</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="system">
+      <h2>SYSTEM</h2>
+      <div class="price-box">
+        <span class="price">💰　60分 3,000円</span>
+        <p>飲み放題🍹・カラオケ無料🎤</p>
+        <p>萩市で唯一！ハブ🐍酒ハイボール！（別料金）</p>
+        <p>その他、高級酒も多数ご用意しております🍸(別料金)</p>
+        <p>キャストとの乾杯🥂1,000円</p>
+      </div>
+    </section>
+
+    <section id="cast">
+      <h2>CAST</h2>
+
+      <div class="cast-carousel">
+        <div class="cast-rotate">
+          <div class="cast-card">
+            <div class="cast-img"></div>
+            <p class="cast-name">TOSHIE(30)</p>
+            <p class="cast-comment">初めまして！TOSHIEです♪皆さんに会えるのを楽しみにしています＾－＾気軽に来店してくださいね～💋</p>
+          </div>
+
+          <div class="cast-card">
+            <div class="cast-img"></div>
+            <p class="cast-name">YUKIE(34)</p>
+            <p class="cast-comment">初めまして！YUKIEです♪楽しくお酒🍷を呑むのとネイルアート💅が好きです。お店で会えるのを楽しみにしてまーす✋</p>
+          </div>
+
+          <div class="cast-card">
+            <div class="cast-img"></div>
+            <p class="cast-name">SETU(22)</p>
+            <p class="cast-comment">初めまして！SETUです♪辛い食べ物と漬物が大好きです！皆さんに楽しんでもらえるように精一杯おもてなしをさせていただきます♪</p>
+          </div>
+
+          <div class="cast-card">
+            <div class="cast-img"></div>
+            <p class="cast-name">NORIKO(39)</p>
+            <p class="cast-comment">初めまして！NORIKOです。お酒はあまり飲まないですが、おもてなしを大切にしています。</p>
+          </div>
+
+          <div class="cast-card">
+            <div class="cast-img"></div>
+            <p class="cast-name">GONZOU(28)</p>
+            <p class="cast-comment">初めまして！BOYのGONZOUです。来店して頂いたお客様に、最高のサービスをご提供できるように精一杯努めさせていただきます。</p>
+          </div>
+
+          <div class="cast-card">
+            <div class="cast-img"></div>
+            <p class="cast-name">Coming Soon</p>
+            <p class="cast-comment">💄お楽しみに💋</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="gallery">
+      <h2>GALLERY</h2>
+      <div class="gallery-container">
+        <div class="gallery-flipper">
+          <div class="gallery-card" style="background: url('gallery1.jpg') center/cover no-repeat;"></div>
+          <div class="gallery-card" style="background: url('gallery2.jpg') center/cover no-repeat;"></div>
+          <div class="gallery-card" style="background: url('gallery3.jpg') center/cover no-repeat;"></div>
+          <div class="gallery-card" style="background: url('gallery4.jpg') center/cover no-repeat;"></div>
+          <div class="gallery-card" style="background: url('gallery5.jpg') center/cover no-repeat;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="access">
+      <h2>ACCESS</h2>
+      <div style="width: 100%; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <p style="text-align: center; margin-bottom: 10px; color: #ffffff; font-size: 16px; font-weight: bold;">
+          〒758-0047 山口県萩市東田町１１４（東萩駅から車で5分。徒歩18分）
+        </p>
+        <p style="text-align: center; margin-bottom: 20px; color: #ffffff; font-size: 14px;">
+          萩市　モナコ
+        </p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.556537083667!2d131.39899!3d34.40085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356d8e5e5e5e5e5d%3A0x0!2zIOODhOODjOODpOODp-OBkOWkqiDjgZLjgozjga7jgqrjgqTjgqE!5e0!3m2!1sja!2sjp!4v1717761600000"
+          width="100%" height="450"
+          style="border:0; border-radius: 10px; box-shadow: 0 0 20px rgba(199, 125, 255, 0.4);" allowfullscreen=""
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <section id="recruit">
+      <h2>RECRUIT</h2>
+      <p>ドリンクバック制度あり！自分の頑張りがそのまま報酬になります￥</p>
+      <p>経験者・未経験者大歓迎！カクテル🍸の作り方からトークのコツまで、丁寧にサポートします。</p>
+      <p>週1日～OK！学生さんや主婦の方も無理なく働けるシフト制です。</p>
+      <p>面接は随時受付中！お気軽にお問い合わせください。</p>
+      <p>一緒にher chanを盛り上げてくれる仲間をお待ちしています！</p>
+      <p>お問い合わせは下記の公式InstagramのDMまで！</p>
+      <div style="margin-top: 30px;">
+        <img src="Instagram_QR.jpg" alt="Instagram QRコード"
+          style="width: 200px; max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 20px rgba(199, 125, 255, 0.4);">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 ELCHAN</p>
+  </footer>
+
+  <!-- ここに JS を追加 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".cast-card");
+      const total = cards.length;
+      const angle = 360 / total;
+
+      cards.forEach((card, i) => {
+        const rotate = angle * i;
+        card.style.transform = `rotateY(${rotate}deg) translateZ(420px)`;
+      });
+    });
+  </script>
+
+</body>
+
+</html>
